@@ -51,7 +51,6 @@ $templateValues = $input['templateValues'] ?? [];
 if ($crm === '' || !isset($crmConfig[$crm])) {
     http_response_code(400);
     $body = json_encode(['error' => 'Missing or invalid crm parameter. Valid values: ' . implode(', ', array_keys($crmConfig))]);
-    welcome_log($body);
     echo $body;
     exit;
 }
@@ -90,7 +89,6 @@ if ($type === 'text') {
 } else {
     http_response_code(400);
     $body = json_encode(['error' => 'type invalido']);
-    welcome_log($body);
     echo $body;
     exit;
 }
@@ -155,5 +153,4 @@ foreach ($messages as $data) {
 $conn->close();
 
 $body = count($responses) === 1 ? $responses[0] : '[' . implode(',', $responses) . ']';
-welcome_log($body);
 echo $body;
