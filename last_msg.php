@@ -14,7 +14,7 @@ $crmConfig = [
         'db'    => 'wazzup_curvy',
         'query' => "SELECT m.timestamp, m.channel
                      FROM message m
-                     WHERE m.contact = ? AND m.direction = 'incoming'
+                     WHERE m.contact = ? AND m.direction = 'incoming' AND m.channel = 'fd8f5b34-affc-4fb8-a1e2-ce60558c39a7'
                      ORDER BY m.timestamp DESC
                      LIMIT 1",
     ],
